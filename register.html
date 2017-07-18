@@ -10,7 +10,29 @@
   <script type="text/JavaScript" src='js/state.js'></script>
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" href="main.css" >
-<link href="css/font-awesome.min.css" rel="stylesheet">
+
+<script>
+
+$(document).ready(function(){
+    $("#add").click(function(){
+
+         var jsonData = '{"firstName" : "' + $('#firstName').val() + '", "lastName" : "' + $('#lastName').val() + '", "company" : "' + $('#company').val() + '", "legalOrTradingName" : "' + $('#legalOrTradingName').val() + '", "lineOfBusiness" : "' + $('#lineOfBusiness').val() + '", "organizationDesc" : "' + $('#organizationDesc').val() + '", "gstRegistrationNum" : "' + $('#gstRegistrationNum').val() + '", "website" : "' + $('#website').val() + '", "address" : "' + $('#address').val() + '", "country" : "' + $('#country').val() + '", "state" : "' + $('#listBox').val() + '", "district" : "' + $('#secondlist').val() + '", "city" : "' + $('#city').val() + '", "phoneNumber" : "' + $('#phoneNumber').val() + '", "email" : "' + $('#email').val() + '", "typeOfUser" : "' + $('#typeOfUser').val() + '"}';
+        // 
+        console.log("jsonData**********",jsonData)
+        $.ajax({                    
+          url: 'http://192.168.0.18:8080/HibernateMVC/users/signup',     
+          type: 'post', // performing a POST request
+          data : jsonData,// will be accessible in $_POST['data1']
+      
+           dataType: 'json',                   
+           success: function(data)         
+            {
+              // etc...
+            } 
+});
+    });
+});
+</script>
 
 </head>
 
@@ -31,57 +53,13 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse button-menu" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse button-menu" name="" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
          <li><a href="#"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> Dashboard</a></li>
-         <!-- <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tasks <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Overview</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Task</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Categories</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contacts <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Übersicht</a></li>
-            <li><a href="#">New Contact</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Categories</a></li>
-          </ul>
-        </li>
-      <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notes <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Overview</a></li>
-            <li><a href="#">New Notiz</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Notebooks</a></li>
-          </ul>
-      </li> -->
+        
       <li><a href="#">Accounts</a></li>
       <li><a href="#">Reports</a></li>
       <li><a href="#">Contacts</a></li>
-      <!-- <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Learnings <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Overview</a></li>
-            <li><a href="#">New Learning</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Categories</a></li>
-          </ul>
-      </li>
-      <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Log <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Overview</a></li>
-            <li><a href="#">New Entry</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Topics</a></li>
-          </ul>
-      </li> -->
       </ul>
       <ul class="nav navbar-nav navbar-right">
 
@@ -105,11 +83,7 @@
          </ul>
         </li>
          <li class="dropdown">
-          <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Jack Bass<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="http://www.fgruber.ch/" target="_blank"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> User Settings</a></li>
-            <li><a href="/logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
-         </ul> -->
+         
 
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <span class="glyphicon glyphicon-user"></span> 
@@ -159,100 +133,95 @@
   <div class="col-md-12">
       <div class="col-md-12">
 
-    <!-- <div class="login">
-    <h4>Login to Web App</h4>
-      <hr>
-            <form class="login-inner">
-            <input type="email" class="form-control email" id="email-input" placeholder="Enter email">
-            <input type="password" class="form-control password" id="password-input" placeholder="Password">
-          <label class="checkbox-inline">
-            <input type="checkbox" id="remember" value="Remember me"> Remember me
-          </label>
-          <input class="btn btn-block btn-lg btn-success submit" type="submit" value="Login">
-        </form>
-      <a href="#" class="btn btn-sm btn-primary register">Register</a>
-      <a href="#" class="btn btn-sm btn-default forgot">Forgot your password?</a>
-
-      <ul class="social-network social-circle">
-                       
-                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-                    </ul> 
-  </div> -->
-
-
   <div class="modal-dialog">
       <div class="modal-content">
           <div class="modal-header login_modal_header">
-           <h2 class="modal-title" id="myModalLabel">Sign-Up to Your Account</h2>
+           <h2 class="modal-title" name="" id="myModalLabel">Sign-Up to Your Account</h2>
           </div>
           <div class="modal-body login-modal">
             <br/>
             <div class="clearfix"></div>
             <div class='social-icons-conatainer'>
-              <form class="form-horizontal" role="form">
+                   
+              <form class="form-horizontal" role="form" method="post">
+                <div class="form-group">
+                    <label for="firstName" class="col-sm-3 control-label">firstName</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="firstName" id="firstName" placeholder="firstName" class="form-control" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName" class="col-sm-3 control-label">lastName</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="lastName" id="lastName" placeholder="lastName" class="form-control" autofocus>
+                    </div>
+                </div>
                 <div class="form-group">
                     <label for="company" class="col-sm-3 control-label">Company</label>
                     <div class="col-sm-9">
-                        <input type="text" id="company" placeholder="Company" class="form-control" autofocus>
+                        <input type="text" name="company" id="company" placeholder="Company" class="form-control" autofocus>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="tradingName" class="col-sm-3 control-label">Legal/Trading Name</label>
                     <div class="col-sm-9">
-                        <input type="text" id="tradingName" placeholder="Legal/Trading Name" class="form-control" autofocus>
+                        <input type="text" name="legalOrTradingName" id="legalOrTradingName" placeholder="Legal/Trading Name" class="form-control" autofocus>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="lineOfBusiness" class="col-sm-3 control-label">Line Of Business</label>
                     <div class="col-sm-9">
-                        <input type="text" id="lineOfBusiness" placeholder="Line Of Business" class="form-control" autofocus>
+                        <input type="text" name="lineOfBusiness" id="lineOfBusiness" placeholder="Line Of Business" class="form-control" autofocus>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="organizationDescription" class="col-sm-3 control-label">Organization Description</label>
                     <div class="col-sm-9">
-                        <input type="text" id="organizationDescription" placeholder="Organization Description" class="form-control" autofocus>
+                        <input type="text" name="organizationDesc" id="organizationDesc" placeholder="Organization Description" class="form-control" autofocus>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="gstRegistrationNumber" class="col-sm-3 control-label">GST Registration Number</label>
                     <div class="col-sm-9">
-                        <input type="text" id="gstRegistrationNumber" placeholder="Company" class="form-control" autofocus>
+                        <input type="text" name="gstRegistrationNum" id="gstRegistrationNum" placeholder="Company" class="form-control" autofocus>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="phone" class="col-sm-3 control-label">Phone Number</label>
                     <div class="col-sm-9">
-                        <input type="text" id="phone" placeholder="Phone Number" class="form-control" autofocus>
+                        <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" class="form-control" autofocus>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="email" class="col-sm-3 control-label">Email</label>
                     <div class="col-sm-9">
-                        <input type="email" id="email" placeholder="Email" class="form-control">
+                        <input type="email" name="email" id="email" placeholder="Email" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="address" class="col-sm-3 control-label">Address</label>
                     <div class="col-sm-9">
-                        <input type="text" id="address" placeholder="Address" class="form-control" autofocus>
+                        <input type="text" name="address" id="address" placeholder="Address" class="form-control" autofocus>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="website" class="col-sm-3 control-label">Website</label>
                     <div class="col-sm-9">
-                        <input type="text" id="website" placeholder="Website" class="form-control" autofocus>
+                        <input type="text" name="website" id="website" placeholder="Website" class="form-control" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="typeOfUser" class="col-sm-3 control-label">Type Of User</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="typeOfUser" id="typeOfUser" placeholder="typeOfUser" class="form-control" autofocus>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="country" class="col-sm-3 control-label">Country</label>
                     <div class="col-sm-9">
-                        <select id="country" class="form-control">
+                        <select name="country" id="country" class="form-control">
                             <option>Select</option>
-                            <option>India</option>
+                            <option value="India">India</option>
                         </select>
                     </div>
                 </div> <!-- /.form-group -->
@@ -260,23 +229,23 @@
                 <div class="form-group">
                     <label for="state" class="col-sm-3 control-label">State</label>
                     <div class="col-sm-9">
-                        <select id="listBox" onchange='selct_district(this.value)' class="form-control"></select>
+                        <select name="state" id="listBox" onchange='selct_district(this.value)' class="form-control"></select>
                         <label for="district" class="col-sm-3 control-label">District</label>
-                        <select id='secondlist' class="form-control"></select>
-                        <div id="dumdiv" align="center" style=" font-size: 10px;color: #dadada;">
-                         <a id="dum" href=""></a>
+                        <select name="district" id='secondlist' class="form-control"></select>
+                        <div name="" id="dumdiv" align="center" style=" font-size: 10px;color: #dadada;">
+                         <a name="" id="dum" href=""></a>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="city" class="col-sm-3 control-label">City</label>
                     <div class="col-sm-9">
-                        <input type="text" id="city" placeholder="City" class="form-control" autofocus>
+                        <input type="text" name="city" id="city" placeholder="City" class="form-control" autofocus>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-9 col-sm-offset-3">
-                        <button type="submit" class="btn btn-success modal-login-btn">Register</button>
+                        <input type="button" id="add" class="btn btn-success modal-login-btn">Register</input>
                     </div>
                 </div>
             </form> <!-- /form -->
