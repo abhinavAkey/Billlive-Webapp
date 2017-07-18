@@ -1,0 +1,330 @@
+ <html>
+
+
+ <head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script type="text/JavaScript" src='js/state.js'></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="main.css" >
+<link href="css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+
+ <body>
+
+
+ <nav class="navbar navbar-default nav-menu">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Sample</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse button-menu" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+         <li><a href="#"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> Dashboard</a></li>
+         <!-- <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tasks <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Overview</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Task</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Categories</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contacts <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Übersicht</a></li>
+            <li><a href="#">New Contact</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Categories</a></li>
+          </ul>
+        </li>
+      <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notes <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Overview</a></li>
+            <li><a href="#">New Notiz</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Notebooks</a></li>
+          </ul>
+      </li> -->
+      <li><a href="#">Accounts</a></li>
+      <li><a href="#">Reports</a></li>
+      <li><a href="#">Contacts</a></li>
+      <!-- <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Learnings <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Overview</a></li>
+            <li><a href="#">New Learning</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Categories</a></li>
+          </ul>
+      </li>
+      <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Log <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Overview</a></li>
+            <li><a href="#">New Entry</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Topics</a></li>
+          </ul>
+      </li> -->
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+        <div class="col-sm-6 col-md-6">
+        <form class="navbar-form" role="search">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="q" style="height: 28px;">
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
+        </form>
+    </div>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> Links<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="http://www.google.ch" target="_blank">My Webmail</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="http://www.google.ch" target="_blank">Timelogger</a></li>
+            <li><a href="http://www.cubetech.ch" target="_blank">cubetech.ch</a></li>
+         </ul>
+        </li>
+         <li class="dropdown">
+          <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Jack Bass<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="http://www.fgruber.ch/" target="_blank"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> User Settings</a></li>
+            <li><a href="/logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
+         </ul> -->
+
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-user"></span> 
+                        <strong>Mahesh</strong>
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div class="navbar-login">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <p class="text-center">
+                                            <span class="glyphicon glyphicon-user icon-size"></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-8" style="padding-right: 30px;padding-left: 30px;">
+                                        <p class="text-left"><strong>Mahesh</strong></p>
+                                        <p class="text-left small">justdemo@gmail.com</p>
+                                        <p class="text-left">
+                                            <a href="#" class="btn btn-primary btn-block btn-sm">Logout</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="navbar-login navbar-login-session">
+                                <div class="row">
+                                    <div class="col-lg-12" style="padding-right: 30px;padding-left: 30px;">
+                                        <p>
+                                          <a href="#" class="btn btn-primary btn-block">My Profile</a>
+                                            <a href="#" class="btn btn-danger btn-block">Change Password</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="row">
+  <div class="col-md-12">
+      <div class="col-md-12">
+
+    <!-- <div class="login">
+    <h4>Login to Web App</h4>
+      <hr>
+            <form class="login-inner">
+            <input type="email" class="form-control email" id="email-input" placeholder="Enter email">
+            <input type="password" class="form-control password" id="password-input" placeholder="Password">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="remember" value="Remember me"> Remember me
+          </label>
+          <input class="btn btn-block btn-lg btn-success submit" type="submit" value="Login">
+        </form>
+      <a href="#" class="btn btn-sm btn-primary register">Register</a>
+      <a href="#" class="btn btn-sm btn-default forgot">Forgot your password?</a>
+
+      <ul class="social-network social-circle">
+                       
+                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                    </ul> 
+  </div> -->
+
+
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header login_modal_header">
+           <h2 class="modal-title" id="myModalLabel">Sign-Up to Your Account</h2>
+          </div>
+          <div class="modal-body login-modal">
+            <br/>
+            <div class="clearfix"></div>
+            <div class='social-icons-conatainer'>
+              <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label for="company" class="col-sm-3 control-label">Company</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="company" placeholder="Company" class="form-control" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="tradingName" class="col-sm-3 control-label">Legal/Trading Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="tradingName" placeholder="Legal/Trading Name" class="form-control" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lineOfBusiness" class="col-sm-3 control-label">Line Of Business</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="lineOfBusiness" placeholder="Line Of Business" class="form-control" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="organizationDescription" class="col-sm-3 control-label">Organization Description</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="organizationDescription" placeholder="Organization Description" class="form-control" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="gstRegistrationNumber" class="col-sm-3 control-label">GST Registration Number</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="gstRegistrationNumber" placeholder="Company" class="form-control" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phone" class="col-sm-3 control-label">Phone Number</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="phone" placeholder="Phone Number" class="form-control" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-3 control-label">Email</label>
+                    <div class="col-sm-9">
+                        <input type="email" id="email" placeholder="Email" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address" class="col-sm-3 control-label">Address</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="address" placeholder="Address" class="form-control" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="website" class="col-sm-3 control-label">Website</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="website" placeholder="Website" class="form-control" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="country" class="col-sm-3 control-label">Country</label>
+                    <div class="col-sm-9">
+                        <select id="country" class="form-control">
+                            <option>Select</option>
+                            <option>India</option>
+                        </select>
+                    </div>
+                </div> <!-- /.form-group -->
+                
+                <div class="form-group">
+                    <label for="state" class="col-sm-3 control-label">State</label>
+                    <div class="col-sm-9">
+                        <select id="listBox" onchange='selct_district(this.value)' class="form-control"></select>
+                        <label for="district" class="col-sm-3 control-label">District</label>
+                        <select id='secondlist' class="form-control"></select>
+                        <div id="dumdiv" align="center" style=" font-size: 10px;color: #dadada;">
+                         <a id="dum" href=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="city" class="col-sm-3 control-label">City</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="city" placeholder="City" class="form-control" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <button type="submit" class="btn btn-success modal-login-btn">Register</button>
+                    </div>
+                </div>
+            </form> <!-- /form -->
+            
+              
+              
+                                                                    
+            
+          </div>
+          <div class="clearfix"></div>
+          <div class="modal-footer login_modal_footer">
+          </div>
+      </div>
+    </div>
+    
+
+
+      </div>
+  </div>
+
+</div>
+ <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; Your Website 2016</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li><a href="#">Privacy Policy</a>
+                        </li>
+                        <li><a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
