@@ -8,11 +8,12 @@ html, body {
 .navbar-default {
   font-size: 1.15em;
   font-weight: 400;
-  background-color: #006b96;
+  background-color: #0092ab;
   padding: 10px;
   border: 0px;
   border-radius: 0px;
 }
+
 
 .navbar-default .navbar-nav>li>a {
   color: white;
@@ -51,60 +52,6 @@ html, body {
 .navbar-default .navbar-toggle .icon-bar {
   background-color: #ffffff;
 }
-
-.dropdown-menu {
-  background-color: #004059;
-  color: white;
-  border: 0px;
-  border-radius: 2px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  min-width: 260px;
-}
-
-.dropdown-menu>li>a {
-  background-color: #004059;
-  color: white;
-}
-
-.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
-  background-color: #004059;
-  color:white;
-}
-
-.dropdown-menu .divider {
-    height: 0px;
-    margin: 9px 0;
-    overflow: hidden;
-    background-color: #003246;
-}
-
-.navbar-default .navbar-nav .open .dropdown-menu>li>a {
-    color: #ffffff;
-}
-
-@media (max-width: 767px) { 
-  .dropdown-menu>li>a {
-    background-color: #006b96;
-    color: #ffffff;
-  }
-  .dropdown-menu>li>a:hover {
-    color: #ffffff;
-  }
-  
-  .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus, .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
-    color: #ffffff;
-    background-color: transparent;
-  }
-  
-  .dropdown-menu .divider {
-    height: 1px;
-    margin: 9px 0;
-    overflow: hidden;
-    background-color: #005577;
-  }
-} /* END Media Query */
-
 
 
 
@@ -177,25 +124,6 @@ html, body {
 
 
 
-footer {
-  padding: 25px 0;
-  text-align: center;
-  background-color: #006b96;
-}
-footer span.copyright {
-  line-height: 40px;
-  color: white;
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-  text-transform: none;
-}
-footer ul.quicklinks {
-  margin-bottom: 0;
-  line-height: 40px;
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-  text-transform: none;
-}
 
 
 .login_modal_footer{margin-top:5px;}
@@ -213,7 +141,7 @@ footer ul.quicklinks {
     width:100%;
     padding-bottom:20px;
 }
-.login_modal_header, .login_modal_footer {background: #006b96 !important;color:#fff;}
+.login_modal_header, .login_modal_footer {background: #0092ab !important;color:#fff;}
 .modal-register-btn{margin: 4% 33% 2% 33% ;width:100%;}
 .login-modal input{height:40px; box-shadow: none; border:1px solid #ddd;}
 .modal-body-left{float:left; width:50%; padding-right:4%; border-right:4px solid #ddd;}
@@ -232,13 +160,13 @@ footer ul.quicklinks {
 #modal-launcher{margin: 30% 0 0 30%; }
 .btn-success:hover, .btn-success:focus, .btn-success.focus, .btn-success:active, .btn-success.active, .open>.dropdown-toggle.btn-success {
     color: #fff;
-    background-color: #006b96;
-    border-color: #006b96;
+    background-color: #0092ab;
+    border-color: #0092ab;
 }
 .btn-success {
     color: #fff;
-    background-color: #006b96;
-    border-color: #006b96;
+    background-color: #0092ab;
+    border-color: #0092ab;
 }
 
 .or-text-row {

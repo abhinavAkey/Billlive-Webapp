@@ -1,21 +1,35 @@
- <html>
-
-
- <head>
-<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!doctype html>
+<html ng-app>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+      <title>GST</title>
+      <meta name="description" content="Coming Soon">
+      <meta name="keywords" content="Coming Soon">
+      <!-- <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/font-awesome.min.css"> -->
+      <link rel="stylesheet" href="css/gstApplication.css">
+      <link rel="stylesheet" href="css/global.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="main.css" >
-
-</head>
-
- <body>
-
-
- <nav class="navbar navbar-default nav-menu">
-  <div class="container-fluid">
+  
+   </head>
+   <body class="login" ng-controller="WelcomeCtrl">
+      <header class="login">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12 headertop">
+                     <div id="logo">
+                        <a href="#">Billlive</a>
+                     </div>
+                  
+               </div>
+            </div>
+         </div>
+      </header>
+      <nav class="navbar navbar-default" style="margin-top:60px;margin-bottom: 0;">
+         <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -24,7 +38,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Sample</a>
+      <!-- <a class="navbar-brand" href="#">Sample</a> -->
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -87,7 +101,7 @@
         <div class="input-group">
             <input type="text" class="form-control" placeholder="Search" name="q" style="height: 28px;">
             <div class="input-group-btn">
-                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                <button class="btn btn-default" type="submit" style="height: 28px;padding-top: 4px;" ><i class="glyphicon glyphicon-search"></i></button>
             </div>
         </div>
         </form>
@@ -150,144 +164,87 @@
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
-</nav>
-
-<div class="row">
-  <div class="col-md-12">
-      <div class="col-md-12">
-
-        <!-- Portfolio Grid Section -->
-    <section id="portfolio" class="bg-light-gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Services</h2>
-                    <h3 class="section-subheading text-muted">Accounting Services</h3>
-                </div>
+      </nav>
+      <div class="slider">
+         <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators" style="z-index: 1;">
+               <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+               <li data-target="#myCarousel" data-slide-to="1"></li>
+               <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               <div class="item active ">
+                  <img src="images/slider3.jpg"  style="width:100%;">
+               </div>
+               <div class="item ">
+                  <img src="images/slider2.jpg"  style="width:100%;">
+               </div>
+               <div class="item ">
+                  <img src="images/slider1.jpg"  style="width:100%;">
+               </div>
             </div>
-            <div class="row">
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/roundicons.png" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Invoices owed to you</h4>
-                        <p class="text-muted">Money you're owed and expected payments</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/startup-framework.png" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Bills to pay</h4>
-                        <p class="text-muted">See your spending and when bills are due</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/treehouse.png" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Bank balances</h4>
-                        <p class="text-muted">Transactions come daily so Xero matches your bank</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/golden.png" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Total cashflow</h4>
-                        <p class="text-muted">See what you're making and spending</p>
-                    </div>
-                </div>
-               <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/treehouse.png" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Bank balances</h4>
-                        <p class="text-muted">Transactions come daily so Xero matches your bank</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/golden.png" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Total cashflow</h4>
-                        <p class="text-muted">See what you're making and spending</p>
-                    </div>
-            </div>
-        </div>
-    </section>
-
-   
-
-
-
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+            </a>
+         </div>
       </div>
-  </div>
-
-</div>
- <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Your Website 2016</span>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li><a href="#">Privacy Policy</a>
-                        </li>
-                        <li><a href="#">Terms of Use</a>
-                        </li>
-                    </ul>
-                </div>
+      <section>
+         <div id="features">
+            <h4>
+               <center>Popular features that will change your life</center>
+            </h4>
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-4">
+                     <div class="feature_grid">
+                        <span class="glyphicon glyphicon-list-alt"></span>
+                        <h5>Easy invoicing</h5>
+                        <p>
+                           Create professional recurring invoices and receive updates when they're opened.
+                        </p>
+                        <a href="#">LEARN MORE</a>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="feature_grid">
+                        <span class="glyphicon glyphicon-home"></span>
+                        <h5> Inventory</h5>
+                        <p>
+                           Inventory items speed up invoicing while tracking sales and purchases.
+                        </p>
+                        <a href="#">LEARN MORE</a>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="feature_grid">
+                        <span class="glyphicon glyphicon-credit-card"></span>
+                        <h5>Pay bills</h5>
+                        <p>
+                           Manage your cashflow by scheduling payments and batch paying suppliers.
+                        </p>
+                        <a href="#">LEARN MORE</a>
+                     </div>
+                  </div>
+               </div>
             </div>
-        </div>
-    </footer>
-
-</body>
+         </div>
+      </section>
+      <footer>
+         <div class="container">
+            <div class="row">
+               <div class="col-xs-12 col-sm-12 col-lg-12 footertext">A Product by GST Inc.<br/> Copyright © 2017 GST | All Rights Reserved</div>
+            </div>
+         </div>
+      </footer>
+   </body>
 </html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>

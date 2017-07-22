@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document */
+.navbar{ margin-bottom:0px; min-height:40px;}
+.navbar-nav>li>a{ padding-top:10px; padding-bottom:10px;}
+.btnmargin{ margin-top:10px;}
+.navbar-default{ background:#fff; border:none;}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{ background:#1C2733; color:#fff;}
+#features{ margin:50px 0px; background:#fff;}
+.btn-top{ background:#1C2733; border:#999 solid 1px;}
+.feature_grid{ text-align:center; background:#FFF; color:#0092ab; padding:4%; border-radius:15px; margin:5% 0%; font-size:14px;}
+.feature_grid span{ color:#0092ab; font-size:30px; width:60px; height:60px; padding:10px 0px; text-align:center; border-radius:50%; border:#0092ab solid 5px;  background:#FFF;}
+.feature_grid a{ color:#fff;}
+.feature_grid h5{ color:#0092ab; font-weight:bold;}
+.footertext{ text-align:center;}
+footer{ border-top:#ccc solid 1px;background-color: #0092ab}
+.welcome_text{ background:#efefef; padding:10px 0px; margin-top:60px;}
+.org_title{ font-size:16px;}
+.welcome{ font-size:14px; color:#0092ab;}
+.dashboard{ background:#efefef; border-top:#ccc solid 1px;}
+.left_links ul{ padding:0px; margin:0 auto;}
+.left_links ul li{ background-image:url(../images/list-icon.png); background-position:0% 50%; background-color:#efefef; background-repeat:no-repeat; padding:5px 0px 5px 30px; 
+margin:5px 0px;}
+.whitebak{ background:#fff; padding:2% 3%; margin:2% 0%; border-radius:8px; border:#ccc solid 1px; min-height:300px;}
+.whitebak h5{ border-bottom:#ccc dotted 1px; padding-bottom:7px; text-transform:uppercase; color:#0092ab;}
+.whitebak h5 button{ font-size:12px; position:relative; top:-10px;}
