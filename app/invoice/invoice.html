@@ -1,0 +1,547 @@
+<!doctype html>
+<html ng-app>
+
+<head>
+
+
+</head>
+
+<body class="login" ng-controller="InvoiceCtrl">
+    <header class="login">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 headertop">
+                    <div id="logo">
+                        <a href="#">Billlive</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav class="navbar navbar-default" style="margin-top:60px;margin-bottom: 0;">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                <!-- <a class="navbar-brand" href="#">Sample</a> -->
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse button-menu" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#/Billlive">Home</a></li>
+
+                    <li><a href="#/invoice">Invoice</a></li>
+                    <li><a href="#/bill">Bills</a></li>
+                    <li><a href="#/purchaseorder">Purchase Orders</a></li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+
+                    <div class="col-sm-6 col-md-6">
+                        <form class="navbar-form" role="search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search" name="q" style="height: 28px;">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="submit" style="height: 28px;padding-top: 4px;"><i class="glyphicon glyphicon-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <li class="dropdown">
+
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false" style="margin-top:5px;">
+                           {{username}}
+                        </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                                <div class="navbar-login">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <p class="text-center">
+                                                <span class="glyphicon glyphicon-user icon-size"></span>
+                                            </p>
+                                        </div>
+                                        <div class="col-lg-8" style="padding-right: 30px;padding-left: 30px;">
+                                            <p class="text-left"><strong>Mahesh</strong></p>
+                                            <p class="text-left small">justdemo@gmail.com</p>
+                                            <p class="text-left" ng-click="logout()">
+                                                <a href="#" class="btn btn-primary btn-block btn-sm">Logout</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="navbar-login navbar-login-session">
+                                    <div class="row">
+                                        <div class="col-lg-12" style="padding-right: 30px;padding-left: 30px;">
+                                            <p>
+                                                <a href="#" class="btn btn-primary btn-block">My Profile</a>
+                                                <a href="#" class="btn btn-danger btn-block">Change Password</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+    <div class="dashboard">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="whitebak" style="
+    margin-top: 7%;
+    overflow: scroll;
+">
+                        <h5>Tryout this</h5>
+                        <div class="left_links">
+                            <ul ng-repeat="item in itemsList.data">
+                                <li class="col-md-4"><a type="button" id="addData" ng-click="addData(item)">{{item.itemName}}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="whitebak">
+                        <h5>Invoice</h5>
+                        <form>
+                            <div class="form-group col-md-3">
+                                <label for="to">To</label>
+                                <div>
+                                    <select name="to" id="to" ng-model="to" class="form-control" ng-change="toggleContactModal(to,'to')">
+          <option value="">Choose Contact</option>
+            <option value="createContact">Create Contact</option>
+            <option ng-repeat = "contact in contactList.data" value="{{contact.contactCompanyName}}">{{contact.contactCompanyName}}</option>
+            
+        </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="from">From</label>
+
+                                <div>
+                                    <select name="from" id="from" ng-model="from" class="form-control" ng-change="toggleContactModal(from,'from')">
+          <option value="">Choose Contact</option>
+            <option value="createContact">Create Contact</option>
+            <option ng-repeat = "contact in contactList" value="{{contact.contactCompanyName}}">{{contact.contactCompanyName}}</option>
+            
+        </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="date">Date</label>
+                                <input type="date" class="form-control" ng-model="dateOfInvoice" id="date">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="duedate">Due Date</label>
+                                <input type="date" class="form-control" ng-model="dueDate" id="duedate">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="date">Mobile Number</label>
+                                <input type="text" class="form-control" ng-model="referenceMobileNumber" id="referenceMobileNumber">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="duedate">Aadhar Card Number</label>
+                                <input type="text" class="form-control" ng-model="referenceAadharCardNumber" id="referenceAadharCardNumber">
+                            </div>
+
+
+                        </form>
+                        </br>
+                        </br>
+                        </br>
+                        </br>
+                        </br>
+                        </br>
+                        </br>
+                        </br>
+                        <div id="grid" ui-grid="gridOptions" ui-grid-edit ui-grid-exporter ui-grid-selection class="grid">
+                            <div style="text-align:right;margin-right:70px;">
+                                <div ng-if="totalTax()">CGST Tax: {{(gridApi.grid.columns[11].getAggregationValue()/2) | number : 2 }}</div>
+                                <div ng-if="totalTax()">SGST Tax: {{(gridApi.grid.columns[11].getAggregationValue() /2)| number : 2}}</div>
+                                <div ng-if="!totalTax()">IGST Tax: {{gridApi.grid.columns[11].getAggregationValue() | number : 2}}</div>
+                                <div>======================</div>
+                                <div>
+                                    <h4 style="margin-top: 0px;margin-bottom: 0px;">Total: {{gridApi.grid.columns[12].getAggregationValue() | number : 2}}</h4>
+                                </div>
+                                <div>======================</div>
+                            </div>
+
+                        </div>
+
+                        <button type="button" id="addData" class="btn btn-success" ng-click="addRow()">Add Data</button>
+                        <button type="button" class="btn btn-success" ng-disabled="rows.length==0" ng-click="addBill(rows)">Convert to Bill</button>
+                        <button type="button" class="btn btn-success" ng-click="saveGridData()">Save</button>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <modal visible="showItemModal">
+        <div>
+            <div class="modal-header">
+                <h3 class="modal-title">Add Item</h3>
+            </div>
+            <div class="modal-body">
+
+                <form name "itemForm">
+                    <div class="form-group">
+
+                        <div>
+                            <input type="text" name="hsnCode" id="hsnCode" ng-model="item.hsnCode" placeholder="HSN Code" class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div>
+                            <input type="text" name="gstItemCode" ng-model="item.gstItemCode" placeholder="GST Item Code" class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="itemName" id="itemName" ng-model="item.itemName" placeholder="Item Name" class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="itemDesc" id="itemDesc" ng-model="item.itemDesc" placeholder="Item Description" class="form-control"
+                                autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="quantityDesc" id="quantityDesc" ng-model="item.quantityDesc" placeholder="Quantity Description"
+                                class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="buyQuantityType" id="buyQuantityType" ng-model="item.buyQuantityType" placeholder="Buying Quantity Type"
+                                class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="actualQuantity" id="actualQuantity" ng-model="item.actualQuantity" placeholder="Actual Quantity"
+                                class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="remainingQuantity" id="remainingQuantity" ng-model="item.remainingQuantity" placeholder="Remaining Quantity"
+                                class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="unitPrice" id="unitPrice" ng-model="item.unitPrice" placeholder="Unit Price" class="form-control"
+                                autofocus>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="sellingPrice" id="sellingPrice" ng-model="item.sellingPrice" placeholder="Selling Price" class="form-control"
+                                autofocus>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="otherSellQuantityTypeOption" id="otherSellQuantityTypeOption" ng-model="item.otherSellQuantityTypeOption"
+                                placeholder="Selling Quantity Type" class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="otherSellOptionQuantityEquivalent" id="otherSellOptionQuantityEquivalent" ng-model="item.otherSellOptionQuantityEquivalent"
+                                placeholder="Selling Quantity Equivalent" class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="otherSellOptionBuyingPrice" id="otherSellOptionBuyingPrice" ng-model="item.otherSellOptionBuyingPrice"
+                                placeholder="Selling Option Buying Price" class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="otherSellOptionSellingPrice" id="otherSellOptionSellingPrice" ng-model="item.otherSellOptionSellingPrice"
+                                placeholder="Selling Option Selling Price" class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="defaultMarginPercentage" id="defaultMarginPercentage" ng-model="item.defaultMarginPercentage" placeholder="Margin Percentage"
+                                class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="defaultMarginAmount" id="defaultMarginAmount" ng-model="item.defaultMarginAmount" placeholder="Margin Amount"
+                                class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="minimumStockValue" id="minimumStockValue" ng-model="item.minimumStockValue" placeholder="Min Stock Value"
+                                class="form-control" autofocus>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div>
+                            <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="addItem(item)">Save</button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </modal>
+
+
+
+
+
+    <modal visible="showTaxModal">
+        <div>
+            <div class="modal-header">
+                <h3 class="modal-title">Add Tax</h3>
+            </div>
+            <div class="modal-body">
+
+                <form name "taxForm">
+                    <div class="form-group">
+
+                        <div>
+                            <input type="text" name="taxDesc" id="taxDesc" ng-model="taxDesc" placeholder="Tax Description" class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div>
+                            <input type="text" name="totalTaxPercentage" ng-model="totalTaxPercentage" placeholder="Tax Percentage" class="form-control"
+                                autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="taxPercentageCGST" id="taxPercentageCGST" ng-model="taxPercentageCGST" placeholder="CGST Tax Percentage"
+                                class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="taxPercentageSGST" id="taxPercentageSGST" ng-model="taxPercentageSGST" placeholder="SGST Tax Percentage"
+                                class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="taxPercentageIGST" id="taxPercentageIGST" ng-model="taxPercentageIGST" placeholder="IGST Tax Percentage"
+                                class="form-control" autofocus>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div>
+                            <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="addTax(taxDesc,totalTaxPercentage,taxPercentageCGST,taxPercentageSGST,taxPercentageIGST)">Save</button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </modal>
+
+
+    <modal visible="showContactModal">
+        <div>
+            <div class="modal-header">
+                <h3 class="modal-title">Add Contact</h3>
+            </div>
+            <div class="modal-body" ng-controller="InvoiceCtrl">
+
+                <form name "serviceForm1" ng-submit="addContact()">
+
+                    <div class="form-group">
+
+                        <label><input type="radio" name="test" ng-model="type" value="customer" selected/> Customer</label>
+                        <label><input type="radio" name="test" ng-model="type" value="company"/> Company</label>
+
+                    </div>
+                    <div class="form-group">
+
+                        <div>
+                            <input type="hidden" name="addressType" id="addressType" ng-model="addressType" placeholder="addressType" class="form-control"
+                                autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div>
+                            <input type="text" name="firstName" id="firstName" ng-model="user.firstName" placeholder="First Name" class="form-control"
+                                autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="lastName" id="lastName" ng-model="user.lastName" placeholder="Last Name" class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="company" id="company" ng-if="type == 'company'" ng-model="user.company" placeholder="Company" class="form-control"
+                                autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="legalOrTradingName" ng-if="type == 'company'" id="legalOrTradingName" ng-model="user.legalOrTradingName"
+                                placeholder="Legal/Trading Name" class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="lineOfBusiness" ng-if="type == 'company'" id="lineOfBusiness" ng-model="user.lineOfBusiness" placeholder="Line Of Business"
+                                class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="organizationDesc" ng-if="type == 'company'" id="organizationDesc" ng-model="user.organizationDesc"
+                                placeholder="Organization Description" class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="gstRegistrationNum" ng-if="type == 'company'" id="gstRegistrationNum" ng-model="user.gstRegistrationNum"
+                                placeholder="Company" class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="phoneNumber" id="phoneNumber" ng-model="user.phoneNumber" placeholder="Phone Number" class="form-control"
+                                autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="mobileNumber" id="mobileNumber" ng-model="user.mobileNumber" placeholder="Mobile Number" class="form-control"
+                                autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="fax" id="fax" ng-model="user.fax" placeholder="Fax" class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="email" name="email" ng-model="user.email" class="form-control" placeholder="Email Address" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="address" id="address" ng-model="user.address" placeholder="Address" class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="website" id="website" ng-if="type == 'company'" ng-model="user.website" placeholder="Website" class="form-control"
+                                autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="typeOfUser" id="typeOfUser" ng-if="type == 'company'" ng-model="user.typeOfUser" placeholder="User Type"
+                                class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <select name="country" id="country" ng-model="user.country" class="form-control">
+                            <option value="">Select Country</option>
+                            <option value="India">India</option>
+                        </select>
+                        </div>
+                    </div>
+                    <!-- /.form-group -->
+
+                    <div class="form-group">
+                        <!-- <div>
+                        <select id="state" ng-disabled="!states" class="form-control" ng-model="state1" ng-options="districts as state for (state, districts) in states">
+                          <option value="">Choose State</option>
+                        </select>
+                    </div> -->
+
+                        <div>
+                            <select id="state" ng-disabled="!states" class="form-control" ng-model="state1" ng-options="districts as state for (state, districts) in states">
+                          <option value="">Choose State</option>
+                        </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div>
+                            <select id="district" ng-model="district" class="form-control" ng-disabled="!state1" ng-options="district as district for district in state1">
+                        <option value="">Choose District</option>
+                        </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div>
+                            <input type="text" name="city" id="city" ng-model="user.city" placeholder="City" class="form-control" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <button type="submit" class="btn btn-lg btn-primary btn-block">Save</button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </modal>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-lg-12 footertext">A Product of PriyaBeatus soft consulting & solutions (P) LTD.<br/> Copyright © 2017 Design & Developed by
+                    PriyaBeatus soft consulting & solutions (P) LTD.</div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

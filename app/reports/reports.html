@@ -1,0 +1,270 @@
+<!doctype html>
+<html ng-app>
+    <head>
+
+
+    </head>
+    <body class="login" ng-controller="BillCtrl">
+        <header class="login">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 headertop">
+                        <div id="logo">
+                            <a href="#">Billlive</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </header>
+        <nav class="navbar navbar-default" style="margin-top:60px;margin-bottom: 0;">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- <a class="navbar-brand" href="#">Sample</a> -->
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse button-menu" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#/Billlive">Home</a></li>
+
+                        <li><a href="#/invoice">Invoice</a></li>
+                        <li><a href="#/bill">Bills</a></li>
+                        <li><a href="#/purchaseorder">Purchase Orders</a></li>
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <div class="col-sm-6 col-md-6">
+                            <form class="navbar-form" role="search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search" name="q" style="height: 28px;">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-default" type="submit" style="height: 28px;padding-top: 4px;" ><i class="glyphicon glyphicon-search"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <li class="dropdown">
+
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top:5px;">
+                           {{username}}
+                        </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                                    <div class="navbar-login">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <p class="text-center">
+                                                    <span class="glyphicon glyphicon-user icon-size"></span>
+                                                </p>
+                                            </div>
+                                            <div class="col-lg-8" style="padding-right: 30px;padding-left: 30px;">
+                                                <p class="text-left"><strong>Mahesh</strong></p>
+                                                <p class="text-left small">justdemo@gmail.com</p>
+                                                <p class="text-left" ng-click="logout()">
+                                                    <a href="#" class="btn btn-primary btn-block btn-sm">Logout</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="navbar-login navbar-login-session">
+                                        <div class="row">
+                                            <div class="col-lg-12" style="padding-right: 30px;padding-left: 30px;">
+                                                <p>
+                                                    <a href="#" class="btn btn-primary btn-block">My Profile</a>
+                                                    <a href="#" class="btn btn-danger btn-block">Change Password</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        
+
+        <div class="dashboard">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-md-2">
+                  <div class="whitebak" style="margin-top: 10%;overflow: scroll;">
+                     <h5>Tryout this</h5>
+                     <div class="left_links">
+                        <ul>
+                           <li class="col-md-4"><a type="button" id="addData"  ng-click="addData('itemId1','itemCode1','itemName1',8,'KG',15,10,5,10)">Item 1</a></li>
+                           <li class="col-md-4"><a type="button" id="addData"  ng-click="addData('itemId2','itemCode2','itemName2',8,'KG',15,10,5,10)">Item 2</a></li>
+                           <li class="col-md-4"><a type="button" id="addData"  ng-click="addData('itemId3','itemCode3','itemName3',8,'KG',15,10,5,10)">Item 3</a></li>
+                           <li class="col-md-4"><a type="button" id="addData"  ng-click="addData('itemId4','itemCode4','itemName4',8,'KG',15,10,5,10)">Item 4</a></li>
+                           
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-10">
+                  <div class="whitebak">
+<h5>Bill</h5>
+<form>
+  <div class="form-group col-md-2">
+    <label for="to">Year</label>
+    <div>
+        <select ng-model="year" class="form-control" ng-options="y for y in years">
+            <option value="">Choose Year</option>
+        </select>
+    </div>
+  </div>
+  <div class="form-group col-md-2">
+        <label for="from">Month</label>
+
+    <div>
+        <select ng-model="month" class="form-control" ng-options="m for m in months">
+            <option value="">Choose Month</option>
+        </select>
+    </div>
+  </div>
+  <div class="form-group col-md-2">
+    <label for="date">Date</label>
+<select ng-model="date" class="form-control" ng-options="d for d in dates">
+            <option value="">Choose Date</option>
+        </select>
+  </div>
+  <div class="form-group col-md-2">
+    <label for="duedate">Tax ID</label>
+    <select name="taxId"  ng-model="taxId" class="form-control">
+          <option value="">Choose Tax ID</option>
+            <option value="tax1">Tax ID 1</option>
+            <option value="tax2">Tax ID 2</option>
+            <option value="tax3">Tax ID 3</option>
+            <option value="tax4">Tax ID 4</option>
+        </select>
+  </div>
+  <div class="form-group col-md-2">
+    <label for="duedate">Item ID</label>
+    <select name="itemId"  ng-model="itemId" class="form-control">
+          <option value="">Choose Tax ID</option>
+            <option value="item1">Item ID 1</option>
+            <option value="item2">Item ID 2</option>
+            <option value="item3">Item ID 3</option>
+            <option value="item4">Item ID 4</option>
+        </select>
+  </div>
+
+  <div class="form-group col-md-2" style="padding-top: 23px;">
+
+                    <div>
+      <button type="submit" class="btn btn-primary btn-block"  ng-click="getGridData()">Save</button>
+                    </div>
+                </div>
+   
+
+</form>
+
+</br></br></br></br>
+                                       <div id="grid" ui-grid="gridOptions" ui-grid-exporter  class="grid" >
+    
+ </div>
+
+    <button type="button"  class="btn btn-success" ng-click="downloadCSV()">Download CSV</button>
+        <button type="button"  class="btn btn-success" ng-click="downloadPDF()">Download PDF</button>
+
+
+
+                  </div>
+                  
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+ <modal visible="showItemModal">
+      <div>
+  <div class="modal-header">
+      <h3 class="modal-title">Add Item</h3>
+  </div>
+  <div class="modal-body">
+    
+    <form name"serviceForm">
+
+    <div class="block">
+        <label>Id</label>
+        <input class="input" type="text" disabled value="{{vm.entity.id}}" />
+    </div>
+    <div class="block">
+        <label>exposedws</label>
+        <input class="input" type="text" ng-model="vm.entity.exposedws"/>
+    </div>
+    <div class="block">
+        <label>exposedoperation</label>
+        <input class="input" type="text" ng-model="vm.entity.exposedoperation"/>
+    </div>
+    <div class="block">
+        <label>version</label>
+        <input class="input" type="text" ng-model="vm.entity.version"/>
+    </div>
+    <div class="block">
+        <label>category</label>
+        <input class="input" type="text" ng-model="vm.entity.category"/>
+    </div>
+    <div class="block">
+        <label>exposednamespace</label>
+        <input class="input" type="text" ng-model="vm.entity.exposednamespace"/>
+    </div>
+    <div class="block">
+        <label>path</label>
+        <input class="input" type="text" ng-model="vm.entity.path"/>
+    </div>
+    <div class="block">
+        <label>provider</label>
+        <input class="input" type="text" ng-model="vm.entity.provider"/>
+    </div>
+        
+    </form>
+    
+  </div>
+  <div class="modal-footer">
+      <button class="btn btn-primary" ng-click="vm.save()">Save</button>
+     <!--  <button class="btn btn-primary" ng-click="vm.remove()">Delete</button>
+      <button class="btn btn-primary" ng-click="$close()">Cancel</button> -->
+  </div>
+</div>
+  </modal>
+
+  <modal visible="showContactModal">
+      <div>
+  <div class="modal-header">
+      <h3 class="modal-title">Bill Information</h3>
+  </div>
+  <div class="modal-body" >
+    
+    
+  </div>
+ <!--  <div class="modal-footer">
+      <button class="btn btn-primary" ng-click="vm.save()">Save</button>
+      <button class="btn btn-primary" ng-click="vm.remove()">Delete</button>
+      <button class="btn btn-primary" ng-click="$close()">Cancel</button>
+  </div> -->
+</div>
+  </modal>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-lg-12 footertext">A Product by GST Inc.<br/> Copyright © 2017 GST | All Rights Reserved</div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

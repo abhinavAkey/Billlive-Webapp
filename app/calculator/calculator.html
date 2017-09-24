@@ -1,0 +1,241 @@
+<!doctype html>
+<html ng-app>
+    <head>
+    </head>
+    <body class="login" ng-controller="CalculatorCtrl">
+        <header class="login">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 headertop">
+                        <div id="logo">
+                            <a href="#">Billlive</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </header>
+        <nav class="navbar navbar-default" style="margin-top:60px;margin-bottom: 0;">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- <a class="navbar-brand" href="#">Sample</a> -->
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse button-menu" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#/Billlive">Home</a></li>
+                        <li><a href="#/calculator">Calculator</a></li>
+
+                    </ul>
+                    
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <div class="dashboard">
+         <div class="container-fluid">
+            <div class="row" style="background-color:white;">
+               <div class="col-md-6">
+                <div class="modal-dialog" style="margin: 30px 56px;">
+      <div class="modal-content" style="margin-bottom: 80px;">
+          <div class="modal-header login_modal_header">
+          <h2 class="modal-title" id="myModalLabel">GST Calculator</h2>
+          </div>
+          <div class="registration" style="padding: 0 13% 0 13%;">
+            <br/>
+            <div class="clearfix"></div>
+        
+
+        <form class="form-horizontal" role="form" name="regForm" novalidate="">
+                
+                
+                <div class="form-group">
+                    <div class="checkbox col-md-6">
+                        <label><input type="radio" style="margin-right: 10px;" name="taxType" ng-model="taxType" value="inclusive" checked="checked">Inclusive Tax</label>
+                    </div>
+                    <div class="checkbox col-md-6">
+                        <label><input type="radio" style="margin-right: 10px;" name="taxType" ng-model="taxType" value="exclusive">Exclusive Tax</label>
+                    </div>
+                </div>
+                <div class="divider" style="border: 1px solid #dcdbdb;margin-top: 5px;"></div>
+
+                <div class="form-group">
+                    <div class="checkbox col-md-6">
+                        <label><input type="radio" style="margin-right: 10px;" name="stateTax" ng-model="stateTax" value="instatetax" checked="checked">CGST & SGST</label>
+                    </div>
+                    <div class="checkbox col-md-6">
+                        <label><input type="radio" style="margin-right: 10px;" name="stateTax" ng-model="stateTax" value="outstatetax">IGST</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4"> Product Value</label>
+                            <div class="controls col-md-8 ">
+                                <input type="text" name="productValue" id="productValue" ng-model="productValue" placeholder="Product Value" numbers-only="numbers-only" class="form-control" autofocus>
+                            </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-md-4"> Tax</label>
+                            <div class="controls col-md-8 ">
+                                <select name="tax" id="tax" ng-model="tax" class="form-control">
+                            <option value="">Choose Tax</option>
+                            <option value="5">5%</option>
+                            <option value="12">12%</option>
+                            <option value="18">18%</option>
+                            <option value="28">28%</option>
+                        </select>
+                            </div>
+
+                </div> <!-- /.form-group -->
+                <div class="form-group">
+
+                    <label class="control-label col-md-4"> Profit(%)</label>
+                            <div class="controls col-md-8 ">
+                                <input type="number" name="profit" id="profit" ng-model="profit"  placeholder="Profit(%)" class="form-control" autofocus>
+                            </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                    <button type="submit" ng-disabled="!productValue || !tax" class="btn btn-lg btn-success btn-block"  ng-click="calculate()">Calculate</button>
+                    </div>
+                </div>
+            </form> <!-- /form -->
+            
+
+          </div>
+          <div class="clearfix"></div>
+          <div class="modal-footer login_modal_footer">
+          </div>
+      </div>
+    </div>
+               </div>
+               <div class="col-md-6" id="calculations" >
+                <div class="modal-dialog" style="margin: 30px 56px;">
+      <div class="modal-content" ng-if = "retailerActualProductValue" style="margin-bottom: 80px;">
+          <div class="modal-header login_modal_header">
+          <h2 class="modal-title" id="myModalLabel">GST Calculations</h2>
+          </div>
+          <div class="registration" style="padding: 0 13% 0 13%;">
+            <br/>
+            <div class="clearfix"></div>
+        
+<div class="widget stacked widget-table action-table" style="margin-top:20px;">
+                    
+                
+                <div class="widget-content">
+                    
+                    <table class="table table-striped table-bordered" >
+
+                            <tr ng-if = "retailerActualProductValue">
+                                <th>Product Value</th>
+                                <td>Rs. {{retailerActualProductValue | number:2}}</td>
+                                
+                            </tr>
+
+                            <tr ng-if = "retailerActualProductValueWithoutTax">
+                                <th>Actual Product Value Without Tax</th>
+                                <td>Rs. {{retailerActualProductValueWithoutTax | number:2}}</td>
+                                
+                            </tr>
+
+                            <tr ng-if = "retailerProductTax">
+                                <th>Product Tax</th>
+                                <td>Rs. {{retailerProductTax | number:2}}</td>
+                                
+                            </tr>
+
+                            <tr ng-if = "retailerProductMargin">
+                                <th>Profit or Product Margin</th>
+                                <td>Rs. {{retailerProductMargin | number:2}}</td>
+                                
+                            </tr>
+  
+
+                            <tr ng-if = "retailerMarginTax">
+                                <th>Tax on Margin</th>
+                                <td>Rs. {{retailerMarginTax | number:2}}</td>
+                                
+                            </tr>
+
+                          
+
+                            <tr ng-if = "retailerIGSTTax">
+                                <th>IGST Tax</th>
+                                <td>Rs. {{retailerIGSTTax | number:2}}</td>
+                                
+                            </tr>
+
+                              <tr ng-if = "retailerCGSTTax">
+                                <th>CGST Tax</th>
+                                <td>Rs. {{retailerCGSTTax | number:2}}</td>
+                                
+                            </tr>
+
+                            <tr ng-if = "retailerSGSTTax">
+                                <th>SGST Tax</th>
+                                <td>Rs. {{retailerSGSTTax | number:2}}</td>
+                                
+                            </tr>
+
+                            <tr ng-if = "retailerProductTax">
+                                <th>Input Tax</th>
+                                <td>Rs. {{retailerProductTax | number:2}}</td>
+                                
+                            </tr>
+
+                            <tr ng-if = "retailerMarginTax">
+                                <th>Output Tax</th>
+                                <td>Rs. {{retailerMarginTax | number:2}}</td>
+                                
+                            </tr>
+
+                            <tr ng-if = "retailerProductValueWithMargin && retailerProductMargin">
+                                <th>Product Value With Tax and Margin</th>
+                                <td>Rs. {{retailerProductValueWithMargin | number:2}}</td>
+                                
+                            </tr>
+
+                            <tr ng-if = "retailerProductValueWithMargin && !retailerProductMargin">
+                                <th>Product Value With Tax</th>
+                                <td>Rs. {{retailerProductValueWithMargin | number:2}}</td>
+                                
+                            </tr>
+
+                        
+                    </table>
+                    
+                </div> 
+            
+            </div> 
+            
+
+          </div>
+          <div class="clearfix"></div>
+          <div class="modal-footer login_modal_footer">
+          </div>
+      </div>
+    </div>
+                  
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-lg-12 footertext">A Product of PriyaBeatus soft consulting & solutions (P) LTD.<br/> Copyright © 2017 Design & Developed by PriyaBeatus soft consulting & solutions (P) LTD.</div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

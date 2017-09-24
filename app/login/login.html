@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html ng-app>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+      <title>GST</title>
+      <meta name="description" content="Coming Soon">
+      <meta name="keywords" content="Coming Soon">
+      <!-- <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/font-awesome.min.css"> -->
+      <link rel="stylesheet" href="css/gstApplication.css">
+      <link rel="stylesheet" href="css/global.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+   </head>
+<body ng-controller="HomeCtrl" class="login">
+<header class="login">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12 headertop">
+                     <div id="logo">
+                        <a href="#">Billlive</a>
+                     </div>
+                  
+               </div>
+            </div>
+         </div>
+      </header>
+      <nav class="navbar navbar-default" style="margin-top:60px;margin-bottom: 0;">
+         <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- <a class="navbar-brand" href="#">Sample</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse button-menu" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+          <li><a href="#/Billlive">Home</a></li>
+
+          <li><a href="#/invoice">Invoice</a></li>
+          <li><a href="#/bill">Bills</a></li>
+          <li><a href="#/purchaseorder">Purchase Orders</a></li>
+
+      </ul>
+      
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+      </nav>
+
+
+<div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header login_modal_header">
+<!--             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+ -->            <h2 class="modal-title" id="myModalLabel">Login to Your Account</h2>
+          </div>
+          <div class="modal-body login-modal">
+            <br/>
+            <div class="clearfix"></div>
+            <div id='social-icons-conatainer'>
+
+
+  
+
+              <div class='modal-body-left'>
+              	<form role="form" name="loginForm" novalidate="">
+                <div class="form-group" ng-class="{'has-error': loginForm.email.$invalid && loginForm.email.$touched}">
+                     <input type="email" name="email" ng-model="user.email" class="form-control" placeholder="Email Address" required="" />
+						<small class="help-block" ng-show="loginForm.email.$invalid && loginForm.email.$touched">Please enter an Email Address</small>
+                      <i class="fa fa-user login-field-icon"></i>
+                  </div>
+    
+                  <div class="form-group" ng-class="{'has-error': loginForm.password.$invalid && loginForm.password.$touched}">
+                      <input type="password" name="password" ng-model="user.password" class="form-control" placeholder="Password" required="" ng-minlength = 8 />
+						<small class="help-block" ng-show="loginForm.password.$error.minlength && loginForm.password.$touched">Password must be atleast 8 characters.</small>
+                      <i class="fa fa-lock login-field-icon"></i>
+                  </div>
+    
+                  <!-- <div class="checkbox col-md-6 col-md-offset-3">
+						<label><a href="#/register">Sign Up</a></label>
+					</div> -->
+
+
+					<div >
+						<p ng-show="errMsg" style="color: red;">{{errorMessage}}</p>
+						<button type="submit" class="btn btn-success modal-login-btn" ng-disabled="loginForm.$invalid" ng-click="signIn()">Log In</button>
+					</div>
+					</form>
+              </div>
+            
+              
+              <div id='center-line'> OR </div>
+             
+
+          <div class='modal-body-right'>
+                <div class="modal-social-icons">
+                  <!-- <button type="submit" class="btn  facebook"  ng-click="signInWithFacebook()"><i class="fa fa-facebook modal-icons"></i> Sign In with Facebook </button> -->
+<!--                   <a href='#' ng-click="signInWithGoogle()" class="btn  google"> <i class="fa fa-google-plus modal-icons"></i> Sign In with Google </a>
+ -->   <button type="submit" class="btn  google"  ng-click="signInWithGoogle()"><i class="fa fa-google-plus modal-icons"></i> Sign In with Google </button>
+                </div> 
+              </div>  
+        
+            </div>                                                        
+            
+            <!-- <div class="form-group modal-register-btn">
+              <button class="btn btn-default"> New User Please Register</button>
+            </div> -->
+            <div class="modal-register-btn">
+              <!-- <button class="btn btn-default"> New User Please Register</button> -->
+              <a class="btn btn-default modal-login-btn" href="#/signup">New User?</a>
+            </div>
+
+          </div>
+          <div class="clearfix"></div>
+          <div class="modal-footer login_modal_footer">
+          </div>
+      </div>
+    </div>
+
+
+<section id="portfolio" class="bg-light-gray">
+        <div class="container">
+            
+            <div class="row">
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/roundicons.png" class="img-responsive" alt="">
+                    </a>
+                    
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/startup-framework.png" class="img-responsive" alt="">
+                    </a>
+                    
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/treehouse.png" class="img-responsive" alt="">
+                    </a>
+                    
+                </div>
+                
+        </div>
+    </section>
+    
+
+
+      </div>
+  </div>
+
+</div>
+      <footer>
+         <div class="container">
+            <div class="row">
+               <div class="col-xs-12 col-sm-12 col-lg-12 footertext">A Product by GST Inc.<br/> Copyright © 2017 GST | All Rights Reserved</div>
+            </div>
+         </div>
+      </footer>
+   </body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
